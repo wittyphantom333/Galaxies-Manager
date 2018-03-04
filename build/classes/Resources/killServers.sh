@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd $(pwd)/exe/linux
+cd /home/swg/swg-main/exe/linux
 
 
 killall CentralServer &> /dev/null
@@ -17,6 +17,8 @@ killall SwgGameServer &> /dev/null
 killall TransferServer &> /dev/null
 killall LoginServer &> /dev/null
 killall TaskManager &> /dev/null
+
+pkill -f chat
 
 echo "All Servers Closed"
 

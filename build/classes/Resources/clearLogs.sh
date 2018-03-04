@@ -1,12 +1,12 @@
 #!/bin/bash
 
-rm -f chat/startChat.txt
-rm -f startLogin.txt
-rm -f startServer.txt
+rm -f /home/swg/swg-main/chat/startChat.txt
+rm -f /home/swg/swg-main/startLogin.txt
+rm -f /home/swg/swg-main/startServer.txt
 
-touch chat/startChat.txt
-touch startLogin.txt
-touch startServer.txt
+touch /home/swg/swg-main/chat/startChat.txt
+touch /home/swg/swg-main/startLogin.txt
+touch /home/swg/swg-main/startServer.txt
 
 echo "Logs Cleared"
 

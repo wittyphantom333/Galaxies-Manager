@@ -1,9 +1,11 @@
 #!/bin/bash
-
-cd /home/swg/swg-main/exe/linux
-
+echo "*****************************"
+echo "Starting NME Game Server v3.3"
+echo "*****************************"
+cd $(pwd)/exe/linux
 
 killall CentralServer &> /dev/null
+killall ChatServer &> /dev/null
 killall CommoditiesServer &> /dev/null
 killall ConnectionServer &> /dev/null
 killall CustomerServiceServer &> /dev/null
@@ -14,7 +16,6 @@ killall ServerConsole &> /dev/null
 killall SwgDatabaseServer &> /dev/null
 killall SwgGameServer &> /dev/null 
 killall TransferServer &> /dev/null
-killall TaskManager &> /dev/null
 
-echo "Game Server Closed"
 
+./bin/TaskManager -- @servercommon.cfg

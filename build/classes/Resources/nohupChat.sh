@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd $(pwd)/chat
+cd /home/swg/swg-main/chat
 
 nohup /home/swg/swg-main/chat/chat > startChat.txt 2>&1&
 
