@@ -6,9 +6,11 @@ import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import static java.lang.System.out;
+import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -44,18 +46,51 @@ public class GalaxiesManager extends javax.swing.JFrame {
         saveButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         planetsButton = new javax.swing.JButton();
-        toolsButton = new javax.swing.JButton();
+        nodeAddressInput = new javax.swing.JTextField();
         oracleWindow = new javax.swing.JDialog();
         jScrollPane4 = new javax.swing.JScrollPane();
         OracleStatus = new javax.swing.JTextArea();
-        restartOracle = new javax.swing.JButton();
-        launchSQLD = new javax.swing.JButton();
-        closeOracle = new javax.swing.JButton();
-        scriptsWindow = new javax.swing.JDialog();
-        closeScripts = new javax.swing.JButton();
+        restartOracleButton = new javax.swing.JButton();
+        launchSQLdButton = new javax.swing.JButton();
+        closeOracleButton = new javax.swing.JButton();
+        backupRestoreButton = new javax.swing.JButton();
+        toolsWindow = new javax.swing.JDialog();
+        closeToolsButton = new javax.swing.JButton();
+        updateGalaxisButton = new javax.swing.JButton();
+        updateServerButton = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
         planetsWindow = new javax.swing.JDialog();
         tutorialCheckBox = new javax.swing.JCheckBox();
         savePlanetsButton = new javax.swing.JButton();
+        tatoonieCheckBox = new javax.swing.JCheckBox();
+        nabooCheckBox = new javax.swing.JCheckBox();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        roriCheckBox = new javax.swing.JCheckBox();
+        talusCheckBox = new javax.swing.JCheckBox();
+        corelliaCheckBox = new javax.swing.JCheckBox();
+        yavinCheckBox = new javax.swing.JCheckBox();
+        lokCheckBox = new javax.swing.JCheckBox();
+        endorCheckBox = new javax.swing.JCheckBox();
+        mustafarCheckBox = new javax.swing.JCheckBox();
+        kashyyykCheckBox = new javax.swing.JCheckBox();
+        dantooineCheckBox = new javax.swing.JCheckBox();
+        dathomirCheckBox = new javax.swing.JCheckBox();
+        lokCheckBox1 = new javax.swing.JCheckBox();
+        endorCheckBox1 = new javax.swing.JCheckBox();
+        tatoonieCheckBox1 = new javax.swing.JCheckBox();
+        mustafarCheckBox1 = new javax.swing.JCheckBox();
+        nabooCheckBox1 = new javax.swing.JCheckBox();
+        kashyyykCheckBox1 = new javax.swing.JCheckBox();
+        dantooineCheckBox1 = new javax.swing.JCheckBox();
+        dathomirCheckBox1 = new javax.swing.JCheckBox();
+        roriCheckBox1 = new javax.swing.JCheckBox();
+        talusCheckBox1 = new javax.swing.JCheckBox();
+        corelliaCheckBox1 = new javax.swing.JCheckBox();
+        yavinCheckBox1 = new javax.swing.JCheckBox();
+        backupRestoreWindow = new javax.swing.JDialog();
         StartLogin = new javax.swing.JButton();
         NMElabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -63,7 +98,7 @@ public class GalaxiesManager extends javax.swing.JFrame {
         StartGame = new javax.swing.JButton();
         KillAll = new javax.swing.JButton();
         OptionsButton = new javax.swing.JButton();
-        Scripts = new javax.swing.JButton();
+        toolsButton = new javax.swing.JButton();
         OracleButton = new javax.swing.JButton();
         KillGame = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -99,12 +134,7 @@ public class GalaxiesManager extends javax.swing.JFrame {
             }
         });
 
-        toolsButton.setText("Tools");
-        toolsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                toolsButtonActionPerformed(evt);
-            }
-        });
+        nodeAddressInput.setText("Node IP");
 
         javax.swing.GroupLayout optionsWindowLayout = new javax.swing.GroupLayout(optionsWindow.getContentPane());
         optionsWindow.getContentPane().setLayout(optionsWindowLayout);
@@ -114,26 +144,28 @@ public class GalaxiesManager extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(optionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(optionsWindowLayout.createSequentialGroup()
-                        .addComponent(toolsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20))
                     .addGroup(optionsWindowLayout.createSequentialGroup()
                         .addComponent(planetsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(153, 153, 153)
+                        .addComponent(nodeAddressInput, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(286, Short.MAX_VALUE))))
         );
         optionsWindowLayout.setVerticalGroup(
             optionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, optionsWindowLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(planetsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(optionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(planetsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nodeAddressInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 286, Short.MAX_VALUE)
                 .addGroup(optionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(toolsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
         );
 
@@ -146,24 +178,31 @@ public class GalaxiesManager extends javax.swing.JFrame {
         OracleStatus.setRows(5);
         jScrollPane4.setViewportView(OracleStatus);
 
-        restartOracle.setText("Restart Oracle");
-        restartOracle.addActionListener(new java.awt.event.ActionListener() {
+        restartOracleButton.setText("Restart Oracle");
+        restartOracleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                restartOracleActionPerformed(evt);
+                restartOracleButtonActionPerformed(evt);
             }
         });
 
-        launchSQLD.setText("Launch SQL-D");
-        launchSQLD.addActionListener(new java.awt.event.ActionListener() {
+        launchSQLdButton.setText("Launch SQL-D");
+        launchSQLdButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                launchSQLDActionPerformed(evt);
+                launchSQLdButtonActionPerformed(evt);
             }
         });
 
-        closeOracle.setText("Close");
-        closeOracle.addActionListener(new java.awt.event.ActionListener() {
+        closeOracleButton.setText("Close");
+        closeOracleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeOracleActionPerformed(evt);
+                closeOracleButtonActionPerformed(evt);
+            }
+        });
+
+        backupRestoreButton.setText("Backup & Restore");
+        backupRestoreButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backupRestoreButtonActionPerformed(evt);
             }
         });
 
@@ -172,12 +211,12 @@ public class GalaxiesManager extends javax.swing.JFrame {
         oracleWindowLayout.setHorizontalGroup(
             oracleWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(oracleWindowLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(oracleWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(oracleWindowLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(restartOracle, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))
-                    .addComponent(closeOracle, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                    .addComponent(launchSQLD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE))
+                    .addComponent(launchSQLdButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(restartOracleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(closeOracleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(backupRestoreButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -188,47 +227,91 @@ public class GalaxiesManager extends javax.swing.JFrame {
                 .addGroup(oracleWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(oracleWindowLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(restartOracle, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(restartOracleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(launchSQLD, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
-                        .addComponent(closeOracle, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(launchSQLdButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(backupRestoreButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                        .addComponent(closeOracleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(oracleWindowLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane4)))
                 .addContainerGap())
         );
 
-        scriptsWindow.setTitle("Scripts");
-        scriptsWindow.setBounds(new java.awt.Rectangle(150, 150, 750, 400));
+        toolsWindow.setTitle("Scripts");
+        toolsWindow.setBounds(new java.awt.Rectangle(150, 150, 750, 400));
 
-        closeScripts.setText("Close");
-        closeScripts.addActionListener(new java.awt.event.ActionListener() {
+        closeToolsButton.setText("Close");
+        closeToolsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeScriptsActionPerformed(evt);
+                closeToolsButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout scriptsWindowLayout = new javax.swing.GroupLayout(scriptsWindow.getContentPane());
-        scriptsWindow.getContentPane().setLayout(scriptsWindowLayout);
-        scriptsWindowLayout.setHorizontalGroup(
-            scriptsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(scriptsWindowLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(closeScripts, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                .addGap(546, 546, 546))
+        updateGalaxisButton.setText("Update Galaxies");
+        updateGalaxisButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateGalaxisButtonActionPerformed(evt);
+            }
+        });
+
+        updateServerButton.setText("Update Server");
+        updateServerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateServerButtonActionPerformed(evt);
+            }
+        });
+
+        jTextArea4.setColumns(20);
+        jTextArea4.setRows(5);
+        jScrollPane5.setViewportView(jTextArea4);
+
+        javax.swing.GroupLayout toolsWindowLayout = new javax.swing.GroupLayout(toolsWindow.getContentPane());
+        toolsWindow.getContentPane().setLayout(toolsWindowLayout);
+        toolsWindowLayout.setHorizontalGroup(
+            toolsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toolsWindowLayout.createSequentialGroup()
+                .addGroup(toolsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, toolsWindowLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(updateServerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(toolsWindowLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(updateGalaxisButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(toolsWindowLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(closeToolsButton, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)))
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
-        scriptsWindowLayout.setVerticalGroup(
-            scriptsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, scriptsWindowLayout.createSequentialGroup()
-                .addContainerGap(430, Short.MAX_VALUE)
-                .addComponent(closeScripts, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+        toolsWindowLayout.setVerticalGroup(
+            toolsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toolsWindowLayout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addComponent(updateGalaxisButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(updateServerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(closeToolsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
+            .addGroup(toolsWindowLayout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
+        planetsWindow.setTitle("Planet Selection");
         planetsWindow.setBounds(new java.awt.Rectangle(175, 175, 750, 400));
 
         tutorialCheckBox.setText("Tutorial");
+        tutorialCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tutorialCheckBoxActionPerformed(evt);
+            }
+        });
 
         savePlanetsButton.setText("Save");
         savePlanetsButton.addActionListener(new java.awt.event.ActionListener() {
@@ -237,31 +320,237 @@ public class GalaxiesManager extends javax.swing.JFrame {
             }
         });
 
+        tatoonieCheckBox.setText("Tatooine");
+
+        nabooCheckBox.setText("Naboo");
+
+        jLabel1.setText("Planets");
+
+        jLabel3.setText("Space");
+
+        jLabel4.setText("Dungeons");
+
+        roriCheckBox.setText("Rori");
+
+        talusCheckBox.setText("Talus");
+
+        corelliaCheckBox.setText("Corellia");
+        corelliaCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                corelliaCheckBoxActionPerformed(evt);
+            }
+        });
+
+        yavinCheckBox.setText("Yavin 4");
+        yavinCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yavinCheckBoxActionPerformed(evt);
+            }
+        });
+
+        lokCheckBox.setText("Lok");
+
+        endorCheckBox.setText("Endor");
+        endorCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                endorCheckBoxActionPerformed(evt);
+            }
+        });
+
+        mustafarCheckBox.setText("Mustafar");
+
+        kashyyykCheckBox.setText("Kashyyyk");
+        kashyyykCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kashyyykCheckBoxActionPerformed(evt);
+            }
+        });
+
+        dantooineCheckBox.setText("Dantooine");
+
+        dathomirCheckBox.setText("Dathomir");
+        dathomirCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dathomirCheckBoxActionPerformed(evt);
+            }
+        });
+
+        lokCheckBox1.setText("Lok");
+
+        endorCheckBox1.setText("Endor");
+        endorCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                endorCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        tatoonieCheckBox1.setText("Tatooine");
+
+        mustafarCheckBox1.setText("Mustafar");
+
+        nabooCheckBox1.setText("Naboo");
+
+        kashyyykCheckBox1.setText("Kashyyyk");
+        kashyyykCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kashyyykCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        dantooineCheckBox1.setText("Dantooine");
+
+        dathomirCheckBox1.setText("Dathomir");
+        dathomirCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dathomirCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        roriCheckBox1.setText("Rori");
+
+        talusCheckBox1.setText("Talus");
+
+        corelliaCheckBox1.setText("Corellia");
+        corelliaCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                corelliaCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        yavinCheckBox1.setText("Yavin 4");
+        yavinCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yavinCheckBox1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout planetsWindowLayout = new javax.swing.GroupLayout(planetsWindow.getContentPane());
         planetsWindow.getContentPane().setLayout(planetsWindowLayout);
         planetsWindowLayout.setHorizontalGroup(
             planetsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(planetsWindowLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(tutorialCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(557, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, planetsWindowLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(46, 46, 46)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(181, 181, 181)
+                .addComponent(jLabel4)
+                .addGap(158, 158, 158))
+            .addGroup(planetsWindowLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(planetsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tutorialCheckBox)
+                    .addComponent(tatoonieCheckBox)
+                    .addComponent(nabooCheckBox)
+                    .addComponent(roriCheckBox)
+                    .addComponent(talusCheckBox)
+                    .addComponent(corelliaCheckBox)
+                    .addComponent(yavinCheckBox)
+                    .addComponent(lokCheckBox)
+                    .addComponent(endorCheckBox)
+                    .addComponent(dantooineCheckBox)
+                    .addComponent(dathomirCheckBox)
+                    .addComponent(kashyyykCheckBox)
+                    .addComponent(mustafarCheckBox))
+                .addGap(129, 129, 129)
+                .addGroup(planetsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(mustafarCheckBox1)
+                    .addComponent(tatoonieCheckBox1)
+                    .addComponent(nabooCheckBox1)
+                    .addComponent(roriCheckBox1)
+                    .addComponent(talusCheckBox1)
+                    .addComponent(corelliaCheckBox1)
+                    .addComponent(yavinCheckBox1)
+                    .addComponent(lokCheckBox1)
+                    .addComponent(endorCheckBox1)
+                    .addComponent(dantooineCheckBox1)
+                    .addComponent(dathomirCheckBox1)
+                    .addComponent(kashyyykCheckBox1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(savePlanetsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGap(26, 26, 26))
         );
         planetsWindowLayout.setVerticalGroup(
             planetsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, planetsWindowLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(planetsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(savePlanetsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mustafarCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(planetsWindowLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(tutorialCheckBox)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 305, Short.MAX_VALUE)
-                .addComponent(savePlanetsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(35, 35, 35)
+                .addGroup(planetsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(planetsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(planetsWindowLayout.createSequentialGroup()
+                        .addComponent(tutorialCheckBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tatoonieCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nabooCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(corelliaCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(roriCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(talusCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(yavinCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(endorCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lokCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dantooineCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dathomirCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(kashyyykCheckBox)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(mustafarCheckBox)
+                        .addGap(59, 59, 59))
+                    .addGroup(planetsWindowLayout.createSequentialGroup()
+                        .addComponent(tatoonieCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nabooCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(corelliaCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(roriCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(talusCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(yavinCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(endorCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lokCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dantooineCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dathomirCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(kashyyykCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(45, 45, 45))))
+        );
+
+        javax.swing.GroupLayout backupRestoreWindowLayout = new javax.swing.GroupLayout(backupRestoreWindow.getContentPane());
+        backupRestoreWindow.getContentPane().setLayout(backupRestoreWindowLayout);
+        backupRestoreWindowLayout.setHorizontalGroup(
+            backupRestoreWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        backupRestoreWindowLayout.setVerticalGroup(
+            backupRestoreWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("NME Galaxies Manager");
+        setTitle("Galaxies Manager");
         setBounds(new java.awt.Rectangle(100, 100, 0, 0));
 
         StartLogin.setText("Start Login Server");
@@ -273,7 +562,7 @@ public class GalaxiesManager extends javax.swing.JFrame {
 
         NMElabel.setFont(new java.awt.Font("Myanmar MN", 0, 22)); // NOI18N
         NMElabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        NMElabel.setText("NoMercyEver");
+        NMElabel.setText("SWG Source");
 
         jLabel2.setText("jLabel1");
 
@@ -306,10 +595,10 @@ public class GalaxiesManager extends javax.swing.JFrame {
             }
         });
 
-        Scripts.setText("Scripts");
-        Scripts.addActionListener(new java.awt.event.ActionListener() {
+        toolsButton.setText("Tools");
+        toolsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ScriptsActionPerformed(evt);
+                toolsButtonActionPerformed(evt);
             }
         });
 
@@ -372,7 +661,7 @@ public class GalaxiesManager extends javax.swing.JFrame {
                     .addComponent(StartGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(KillAll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(OptionsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Scripts, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(toolsButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(OracleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(KillGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -415,7 +704,7 @@ public class GalaxiesManager extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(OptionsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Scripts, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(toolsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(KillGame, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -583,10 +872,10 @@ while ((s = stdError.readLine()) != null) {
         optionsWindow.setVisible(true);
     }//GEN-LAST:event_OptionsButtonActionPerformed
 
-    private void ScriptsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScriptsActionPerformed
+    private void toolsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toolsButtonActionPerformed
         // TODO add your handling code here:
-        scriptsWindow.setVisible(true);
-    }//GEN-LAST:event_ScriptsActionPerformed
+        toolsWindow.setVisible(true);
+    }//GEN-LAST:event_toolsButtonActionPerformed
 
     private void KillGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KillGameActionPerformed
         // TODO add your handling code here:
@@ -714,9 +1003,137 @@ while ((s = stdError.readLine()) != null) {
             
     }//GEN-LAST:event_clearLogsActionPerformed
 
-    private void restartOracleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restartOracleActionPerformed
+    private void planetsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_planetsButtonActionPerformed
         // TODO add your handling code here:
-         try {
+        planetsWindow.setVisible(true);
+    }//GEN-LAST:event_planetsButtonActionPerformed
+
+    private void dathomirCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dathomirCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dathomirCheckBoxActionPerformed
+
+    private void kashyyykCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kashyyykCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_kashyyykCheckBoxActionPerformed
+
+    private void endorCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endorCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_endorCheckBoxActionPerformed
+
+    private void yavinCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yavinCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_yavinCheckBoxActionPerformed
+
+    private void corelliaCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_corelliaCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_corelliaCheckBoxActionPerformed
+
+    private void savePlanetsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savePlanetsButtonActionPerformed
+        // TODO add your handling code here:
+        if (tutorialCheckBox.isSelected()) {
+                try {
+            // TODO add your handling code here:
+            Runtime rt = Runtime.getRuntime();
+            String[] commands = {"bash","sed -i -e s'|startPlanet=tutorial|#startPlanet=tutorial|' /home/swg/swg-main/exe/linux/localOptions.cfg"};
+            Process proc = rt.exec(commands);
+            
+            BufferedReader stdInput = new BufferedReader(new
+             InputStreamReader(proc.getInputStream()));
+            
+            BufferedReader stdError = new BufferedReader(new
+             InputStreamReader(proc.getErrorStream()));
+            
+            
+// read the output from the command
+//System.out.println("Oracle Status Request...\n");
+String s = null;
+String line = "";
+String output = "";
+while ((s = stdInput.readLine()) != null) {
+    output += line + "\n";
+    System.out.println(s);
+    
+    
+   
+}
+
+// read any errors from the attempted command
+//System.out.println("Here is the standard error of the command (if any):\n");
+while ((s = stdError.readLine()) != null) {
+    System.out.println(s);
+}       } catch (IOException ex) {
+            Logger.getLogger(GalaxiesManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+            planetsWindow.setVisible(false);
+ 
+} else {
+ 
+            try {
+            // TODO add your handling code here:
+            Runtime rt = Runtime.getRuntime();
+            String[] commands = {"bash","sed -i -e s'|#startPlanet=tutorial|startPlanet=tutorial|' /home/swg/swg-main/exe/linux/localOptions.cfg"};
+            Process proc = rt.exec(commands);
+            
+            BufferedReader stdInput = new BufferedReader(new
+             InputStreamReader(proc.getInputStream()));
+            
+            BufferedReader stdError = new BufferedReader(new
+             InputStreamReader(proc.getErrorStream()));
+            
+            
+// read the output from the command
+//System.out.println("Oracle Status Request...\n");
+String s = null;
+String line = "";
+String output = "";
+while ((s = stdInput.readLine()) != null) {
+    output += line + "\n";
+    System.out.println(s);
+    
+    
+   
+}
+
+// read any errors from the attempted command
+//System.out.println("Here is the standard error of the command (if any):\n");
+while ((s = stdError.readLine()) != null) {
+    System.out.println(s);
+}       } catch (IOException ex) {
+            Logger.getLogger(GalaxiesManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+            planetsWindow.setVisible(false);
+    }//GEN-LAST:event_savePlanetsButtonActionPerformed
+    }
+    private void tutorialCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tutorialCheckBoxActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_tutorialCheckBoxActionPerformed
+
+    private void endorCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endorCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_endorCheckBox1ActionPerformed
+
+    private void kashyyykCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kashyyykCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_kashyyykCheckBox1ActionPerformed
+
+    private void dathomirCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dathomirCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dathomirCheckBox1ActionPerformed
+
+    private void corelliaCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_corelliaCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_corelliaCheckBox1ActionPerformed
+
+    private void yavinCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yavinCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_yavinCheckBox1ActionPerformed
+
+    private void restartOracleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restartOracleButtonActionPerformed
+        // TODO add your handling code here:
+        try {
             // TODO add your handling code here:
             Runtime rt = Runtime.getRuntime();
             String[] commands = {"systemctl","restart","oracle"};
@@ -724,34 +1141,33 @@ while ((s = stdError.readLine()) != null) {
         } catch (IOException ex) {
             Logger.getLogger(GalaxiesManager.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_restartOracleActionPerformed
+    }//GEN-LAST:event_restartOracleButtonActionPerformed
 
-    private void launchSQLDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_launchSQLDActionPerformed
+    private void launchSQLdButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_launchSQLdButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_launchSQLDActionPerformed
+    }//GEN-LAST:event_launchSQLdButtonActionPerformed
 
-    private void closeOracleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeOracleActionPerformed
+    private void closeOracleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeOracleButtonActionPerformed
         // TODO add your handling code here:
         oracleWindow.setVisible(false);
-    }//GEN-LAST:event_closeOracleActionPerformed
+    }//GEN-LAST:event_closeOracleButtonActionPerformed
 
-    private void closeScriptsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeScriptsActionPerformed
+    private void backupRestoreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backupRestoreButtonActionPerformed
         // TODO add your handling code here:
-        scriptsWindow.setVisible(false);
-    }//GEN-LAST:event_closeScriptsActionPerformed
+        backupRestoreWindow.setVisible(true);
+    }//GEN-LAST:event_backupRestoreButtonActionPerformed
 
-    private void planetsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_planetsButtonActionPerformed
+    private void closeToolsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeToolsButtonActionPerformed
         // TODO add your handling code here:
-        planetsWindow.setVisible(true);
-    }//GEN-LAST:event_planetsButtonActionPerformed
+    }//GEN-LAST:event_closeToolsButtonActionPerformed
 
-    private void savePlanetsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savePlanetsButtonActionPerformed
+    private void updateGalaxisButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateGalaxisButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_savePlanetsButtonActionPerformed
+    }//GEN-LAST:event_updateGalaxisButtonActionPerformed
 
-    private void toolsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toolsButtonActionPerformed
+    private void updateServerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateServerButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_toolsButtonActionPerformed
+    }//GEN-LAST:event_updateServerButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -779,15 +1195,28 @@ while ((s = stdError.readLine()) != null) {
             java.util.logging.Logger.getLogger(GalaxiesManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        /* Create and display the form */
+            try {
+            if (Integer.parseInt(Updater.getLatestVersion()) > 0) {
+                new UpdateInfo(Updater.getWhatsNew());
+            }
+            else {
+            /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GalaxiesManager().setVisible(true);
             }
         });
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        
     }
 
+    
+
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton KillAll;
     private javax.swing.JButton KillGame;
@@ -796,32 +1225,65 @@ while ((s = stdError.readLine()) != null) {
     private javax.swing.JButton OracleButton;
     private javax.swing.JTextArea OracleStatus;
     private javax.swing.JButton Refresh;
-    private javax.swing.JButton Scripts;
     private javax.swing.JButton StartChat;
     private javax.swing.JButton StartGame;
     private javax.swing.JButton StartLogin;
+    private javax.swing.JButton backupRestoreButton;
+    private javax.swing.JDialog backupRestoreWindow;
     private javax.swing.JButton cancelButton;
     private javax.swing.JButton clearLogs;
-    private javax.swing.JButton closeOracle;
-    private javax.swing.JButton closeScripts;
+    private javax.swing.JButton closeOracleButton;
+    private javax.swing.JButton closeToolsButton;
+    private javax.swing.JCheckBox corelliaCheckBox;
+    private javax.swing.JCheckBox corelliaCheckBox1;
+    private javax.swing.JCheckBox dantooineCheckBox;
+    private javax.swing.JCheckBox dantooineCheckBox1;
+    private javax.swing.JCheckBox dathomirCheckBox;
+    private javax.swing.JCheckBox dathomirCheckBox1;
+    private javax.swing.JCheckBox endorCheckBox;
+    private javax.swing.JCheckBox endorCheckBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JButton launchSQLD;
+    private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JCheckBox kashyyykCheckBox;
+    private javax.swing.JCheckBox kashyyykCheckBox1;
+    private javax.swing.JButton launchSQLdButton;
+    private javax.swing.JCheckBox lokCheckBox;
+    private javax.swing.JCheckBox lokCheckBox1;
+    private javax.swing.JCheckBox mustafarCheckBox;
+    private javax.swing.JCheckBox mustafarCheckBox1;
+    private javax.swing.JCheckBox nabooCheckBox;
+    private javax.swing.JCheckBox nabooCheckBox1;
+    private javax.swing.JTextField nodeAddressInput;
     private javax.swing.JDialog optionsWindow;
     private javax.swing.JDialog oracleWindow;
     private javax.swing.JButton planetsButton;
     private javax.swing.JDialog planetsWindow;
-    private javax.swing.JButton restartOracle;
+    private javax.swing.JButton restartOracleButton;
+    private javax.swing.JCheckBox roriCheckBox;
+    private javax.swing.JCheckBox roriCheckBox1;
     private javax.swing.JButton saveButton;
     private javax.swing.JButton savePlanetsButton;
-    private javax.swing.JDialog scriptsWindow;
+    private javax.swing.JCheckBox talusCheckBox;
+    private javax.swing.JCheckBox talusCheckBox1;
+    private javax.swing.JCheckBox tatoonieCheckBox;
+    private javax.swing.JCheckBox tatoonieCheckBox1;
     private javax.swing.JButton toolsButton;
+    private javax.swing.JDialog toolsWindow;
     private javax.swing.JCheckBox tutorialCheckBox;
+    private javax.swing.JButton updateGalaxisButton;
+    private javax.swing.JButton updateServerButton;
+    private javax.swing.JCheckBox yavinCheckBox;
+    private javax.swing.JCheckBox yavinCheckBox1;
     // End of variables declaration//GEN-END:variables
 }

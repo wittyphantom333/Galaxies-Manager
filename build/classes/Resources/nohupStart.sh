@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/swg/swg-main
+cd /home/swg/swg-main/nme/logs
 
-nohup ./startWithLogging.sh > startServer.txt 2>&1&
+nohup /home/swg/swg-main/nme/scripts/./startServer.sh > startServer.txt 2>&1&
 
