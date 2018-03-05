@@ -442,7 +442,7 @@ public class GalaxiesManager extends javax.swing.JFrame {
             
 // read the output from the command
 System.out.println("Login Server Started...\n");
-jTextArea1.read(new FileReader("/home/swg/swg-main/nme/logsstartLogin.txt"), "blah");
+jTextArea1.read(new FileReader("/home/swg/swg-main/nme/logs/startLogin.txt"), "blah");
 String s = null;
 String line = "";
 String output = "";
@@ -678,7 +678,7 @@ while ((s = stdError.readLine()) != null) {
     private void RefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshActionPerformed
         try {
             jTextArea1.read(new FileReader("/home/swg/swg-main/nme/logs/startLogin.txt"), "blah");
-            jTextArea1.setCaretPosition(jTextArea1.getDocument().getLength() - 1);
+            //jTextArea1.setCaretPosition(jTextArea1.getDocument().getLength() - 1);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(GalaxiesManager.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -686,7 +686,7 @@ while ((s = stdError.readLine()) != null) {
         }
         try {
             jTextArea2.read(new FileReader("/home/swg/swg-main/nme/logs/startChat.txt"), "blah");
-            jTextArea2.setCaretPosition(jTextArea2.getDocument().getLength() - 1);
+            //jTextArea2.setCaretPosition(jTextArea2.getDocument().getLength() - 1);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(GalaxiesManager.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -694,7 +694,7 @@ while ((s = stdError.readLine()) != null) {
         }
         try {
             jTextArea3.read(new FileReader("/home/swg/swg-main/nme/logs/startServer.txt"), "blah");
-            jTextArea3.setCaretPosition(jTextArea3.getDocument().getLength() - 1);
+            //jTextArea3.setCaretPosition(jTextArea3.getDocument().getLength() - 1);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(GalaxiesManager.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
