@@ -40,17 +40,21 @@ public class GalaxiesManager extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        OptionsWindow = new javax.swing.JDialog();
-        SaveButton = new javax.swing.JButton();
-        CancelButton = new javax.swing.JButton();
-        OracleWindow = new javax.swing.JDialog();
+        optionsWindow = new javax.swing.JDialog();
+        saveButton = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
+        planetsButton = new javax.swing.JButton();
+        oracleWindow = new javax.swing.JDialog();
         jScrollPane4 = new javax.swing.JScrollPane();
         OracleStatus = new javax.swing.JTextArea();
         restartOracle = new javax.swing.JButton();
         launchSQLD = new javax.swing.JButton();
         closeOracle = new javax.swing.JButton();
-        ScriptsWindow = new javax.swing.JDialog();
+        scriptsWindow = new javax.swing.JDialog();
         closeScripts = new javax.swing.JButton();
+        planetsWindow = new javax.swing.JDialog();
+        tutorialCheckBox = new javax.swing.JCheckBox();
+        savePlanetsButton = new javax.swing.JButton();
         StartLogin = new javax.swing.JButton();
         NMElabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -70,48 +74,60 @@ public class GalaxiesManager extends javax.swing.JFrame {
         Refresh = new javax.swing.JButton();
         clearLogs = new javax.swing.JButton();
 
-        OptionsWindow.setTitle("Options");
-        OptionsWindow.setAlwaysOnTop(true);
-        OptionsWindow.setBounds(new java.awt.Rectangle(150, 150, 750, 400));
+        optionsWindow.setTitle("Options");
+        optionsWindow.setBounds(new java.awt.Rectangle(150, 150, 750, 400));
 
-        SaveButton.setText("Save");
-        SaveButton.addActionListener(new java.awt.event.ActionListener() {
+        saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SaveButtonActionPerformed(evt);
+                saveButtonActionPerformed(evt);
             }
         });
 
-        CancelButton.setText("Cancel");
-        CancelButton.addActionListener(new java.awt.event.ActionListener() {
+        cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelButtonActionPerformed(evt);
+                cancelButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout OptionsWindowLayout = new javax.swing.GroupLayout(OptionsWindow.getContentPane());
-        OptionsWindow.getContentPane().setLayout(OptionsWindowLayout);
-        OptionsWindowLayout.setHorizontalGroup(
-            OptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OptionsWindowLayout.createSequentialGroup()
+        planetsButton.setText("Planets");
+        planetsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                planetsButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout optionsWindowLayout = new javax.swing.GroupLayout(optionsWindow.getContentPane());
+        optionsWindow.getContentPane().setLayout(optionsWindowLayout);
+        optionsWindowLayout.setHorizontalGroup(
+            optionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, optionsWindowLayout.createSequentialGroup()
                 .addContainerGap(438, Short.MAX_VALUE)
-                .addComponent(CancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
+            .addGroup(optionsWindowLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(planetsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        OptionsWindowLayout.setVerticalGroup(
-            OptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OptionsWindowLayout.createSequentialGroup()
-                .addContainerGap(351, Short.MAX_VALUE)
-                .addGroup(OptionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+        optionsWindowLayout.setVerticalGroup(
+            optionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, optionsWindowLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(planetsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 286, Short.MAX_VALUE)
+                .addGroup(optionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
         );
 
-        OracleWindow.setTitle("Oracle");
-        OracleWindow.setAlwaysOnTop(true);
-        OracleWindow.setBounds(new java.awt.Rectangle(150, 150, 750, 400));
+        oracleWindow.setTitle("Oracle");
+        oracleWindow.setAlwaysOnTop(true);
+        oracleWindow.setBounds(new java.awt.Rectangle(150, 150, 750, 400));
 
         OracleStatus.setEditable(false);
         OracleStatus.setColumns(20);
@@ -139,13 +155,13 @@ public class GalaxiesManager extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout OracleWindowLayout = new javax.swing.GroupLayout(OracleWindow.getContentPane());
-        OracleWindow.getContentPane().setLayout(OracleWindowLayout);
-        OracleWindowLayout.setHorizontalGroup(
-            OracleWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(OracleWindowLayout.createSequentialGroup()
-                .addGroup(OracleWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(OracleWindowLayout.createSequentialGroup()
+        javax.swing.GroupLayout oracleWindowLayout = new javax.swing.GroupLayout(oracleWindow.getContentPane());
+        oracleWindow.getContentPane().setLayout(oracleWindowLayout);
+        oracleWindowLayout.setHorizontalGroup(
+            oracleWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(oracleWindowLayout.createSequentialGroup()
+                .addGroup(oracleWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(oracleWindowLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(restartOracle, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))
                     .addComponent(closeOracle, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
@@ -154,25 +170,25 @@ public class GalaxiesManager extends javax.swing.JFrame {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        OracleWindowLayout.setVerticalGroup(
-            OracleWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OracleWindowLayout.createSequentialGroup()
-                .addGroup(OracleWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(OracleWindowLayout.createSequentialGroup()
+        oracleWindowLayout.setVerticalGroup(
+            oracleWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, oracleWindowLayout.createSequentialGroup()
+                .addGroup(oracleWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(oracleWindowLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addComponent(restartOracle, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(launchSQLD, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
                         .addComponent(closeOracle, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(OracleWindowLayout.createSequentialGroup()
+                    .addGroup(oracleWindowLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane4)))
                 .addContainerGap())
         );
 
-        ScriptsWindow.setTitle("Scripts");
-        ScriptsWindow.setBounds(new java.awt.Rectangle(150, 150, 750, 400));
+        scriptsWindow.setTitle("Scripts");
+        scriptsWindow.setBounds(new java.awt.Rectangle(150, 150, 750, 400));
 
         closeScripts.setText("Close");
         closeScripts.addActionListener(new java.awt.event.ActionListener() {
@@ -181,21 +197,55 @@ public class GalaxiesManager extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout ScriptsWindowLayout = new javax.swing.GroupLayout(ScriptsWindow.getContentPane());
-        ScriptsWindow.getContentPane().setLayout(ScriptsWindowLayout);
-        ScriptsWindowLayout.setHorizontalGroup(
-            ScriptsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ScriptsWindowLayout.createSequentialGroup()
+        javax.swing.GroupLayout scriptsWindowLayout = new javax.swing.GroupLayout(scriptsWindow.getContentPane());
+        scriptsWindow.getContentPane().setLayout(scriptsWindowLayout);
+        scriptsWindowLayout.setHorizontalGroup(
+            scriptsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(scriptsWindowLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(closeScripts, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
                 .addGap(546, 546, 546))
         );
-        ScriptsWindowLayout.setVerticalGroup(
-            ScriptsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ScriptsWindowLayout.createSequentialGroup()
+        scriptsWindowLayout.setVerticalGroup(
+            scriptsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, scriptsWindowLayout.createSequentialGroup()
                 .addContainerGap(430, Short.MAX_VALUE)
                 .addComponent(closeScripts, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+        );
+
+        planetsWindow.setBounds(new java.awt.Rectangle(175, 175, 750, 400));
+
+        tutorialCheckBox.setText("Tutorial");
+
+        savePlanetsButton.setText("Save");
+        savePlanetsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                savePlanetsButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout planetsWindowLayout = new javax.swing.GroupLayout(planetsWindow.getContentPane());
+        planetsWindow.getContentPane().setLayout(planetsWindowLayout);
+        planetsWindowLayout.setHorizontalGroup(
+            planetsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(planetsWindowLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(tutorialCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(557, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, planetsWindowLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(savePlanetsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+        );
+        planetsWindowLayout.setVerticalGroup(
+            planetsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(planetsWindowLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(tutorialCheckBox)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 305, Short.MAX_VALUE)
+                .addComponent(savePlanetsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -479,7 +529,7 @@ while ((s = stdError.readLine()) != null) {
 
     private void OracleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OracleButtonActionPerformed
         // TODO add your handling code here:
-        OracleWindow.setVisible(true);
+        oracleWindow.setVisible(true);
         try {
             // TODO add your handling code here:
             Runtime rt = Runtime.getRuntime();
@@ -518,12 +568,12 @@ while ((s = stdError.readLine()) != null) {
 
     private void OptionsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OptionsButtonActionPerformed
         // TODO add your handling code here:\
-        OptionsWindow.setVisible(true);
+        optionsWindow.setVisible(true);
     }//GEN-LAST:event_OptionsButtonActionPerformed
 
     private void ScriptsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScriptsActionPerformed
         // TODO add your handling code here:
-        ScriptsWindow.setVisible(true);
+        scriptsWindow.setVisible(true);
     }//GEN-LAST:event_ScriptsActionPerformed
 
     private void KillGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KillGameActionPerformed
@@ -604,14 +654,14 @@ while ((s = stdError.readLine()) != null) {
         }
     }//GEN-LAST:event_KillAllActionPerformed
 
-    private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SaveButtonActionPerformed
+    }//GEN-LAST:event_saveButtonActionPerformed
 
-    private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         // TODO add your handling code here:
-        OptionsWindow.setVisible(false);
-    }//GEN-LAST:event_CancelButtonActionPerformed
+        optionsWindow.setVisible(false);
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void RefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshActionPerformed
         try {
@@ -670,13 +720,22 @@ while ((s = stdError.readLine()) != null) {
 
     private void closeOracleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeOracleActionPerformed
         // TODO add your handling code here:
-        OracleWindow.setVisible(false);
+        oracleWindow.setVisible(false);
     }//GEN-LAST:event_closeOracleActionPerformed
 
     private void closeScriptsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeScriptsActionPerformed
         // TODO add your handling code here:
-        ScriptsWindow.setVisible(false);
+        scriptsWindow.setVisible(false);
     }//GEN-LAST:event_closeScriptsActionPerformed
+
+    private void planetsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_planetsButtonActionPerformed
+        // TODO add your handling code here:
+        planetsWindow.setVisible(true);
+    }//GEN-LAST:event_planetsButtonActionPerformed
+
+    private void savePlanetsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savePlanetsButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_savePlanetsButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -714,22 +773,18 @@ while ((s = stdError.readLine()) != null) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CancelButton;
     private javax.swing.JButton KillAll;
     private javax.swing.JButton KillGame;
     private javax.swing.JLabel NMElabel;
     private javax.swing.JButton OptionsButton;
-    private javax.swing.JDialog OptionsWindow;
     private javax.swing.JButton OracleButton;
     private javax.swing.JTextArea OracleStatus;
-    private javax.swing.JDialog OracleWindow;
     private javax.swing.JButton Refresh;
-    private javax.swing.JButton SaveButton;
     private javax.swing.JButton Scripts;
-    private javax.swing.JDialog ScriptsWindow;
     private javax.swing.JButton StartChat;
     private javax.swing.JButton StartGame;
     private javax.swing.JButton StartLogin;
+    private javax.swing.JButton cancelButton;
     private javax.swing.JButton clearLogs;
     private javax.swing.JButton closeOracle;
     private javax.swing.JButton closeScripts;
@@ -742,6 +797,14 @@ while ((s = stdError.readLine()) != null) {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JButton launchSQLD;
+    private javax.swing.JDialog optionsWindow;
+    private javax.swing.JDialog oracleWindow;
+    private javax.swing.JButton planetsButton;
+    private javax.swing.JDialog planetsWindow;
     private javax.swing.JButton restartOracle;
+    private javax.swing.JButton saveButton;
+    private javax.swing.JButton savePlanetsButton;
+    private javax.swing.JDialog scriptsWindow;
+    private javax.swing.JCheckBox tutorialCheckBox;
     // End of variables declaration//GEN-END:variables
 }
