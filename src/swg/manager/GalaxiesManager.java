@@ -44,6 +44,7 @@ public class GalaxiesManager extends javax.swing.JFrame {
         saveButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         planetsButton = new javax.swing.JButton();
+        toolsButton = new javax.swing.JButton();
         oracleWindow = new javax.swing.JDialog();
         jScrollPane4 = new javax.swing.JScrollPane();
         OracleStatus = new javax.swing.JTextArea();
@@ -98,20 +99,30 @@ public class GalaxiesManager extends javax.swing.JFrame {
             }
         });
 
+        toolsButton.setText("Tools");
+        toolsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toolsButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout optionsWindowLayout = new javax.swing.GroupLayout(optionsWindow.getContentPane());
         optionsWindow.getContentPane().setLayout(optionsWindowLayout);
         optionsWindowLayout.setHorizontalGroup(
             optionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, optionsWindowLayout.createSequentialGroup()
-                .addContainerGap(438, Short.MAX_VALUE)
-                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
             .addGroup(optionsWindowLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(planetsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(optionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(optionsWindowLayout.createSequentialGroup()
+                        .addComponent(toolsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
+                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))
+                    .addGroup(optionsWindowLayout.createSequentialGroup()
+                        .addComponent(planetsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         optionsWindowLayout.setVerticalGroup(
             optionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,7 +132,8 @@ public class GalaxiesManager extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 286, Short.MAX_VALUE)
                 .addGroup(optionsWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(toolsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
         );
 
@@ -418,7 +430,7 @@ public class GalaxiesManager extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             Runtime rt = Runtime.getRuntime();
-            String[] commands = {"bash","/home/swg/swg-main/./nohupLogin.sh"};
+            String[] commands = {"bash","/home/swg/swg-main/nme/scripts/./nohupLogin.sh"};
             Process proc = rt.exec(commands);
             
             BufferedReader stdInput = new BufferedReader(new
@@ -430,7 +442,7 @@ public class GalaxiesManager extends javax.swing.JFrame {
             
 // read the output from the command
 System.out.println("Login Server Started...\n");
-jTextArea1.read(new FileReader("/home/swg/swg-main/startLogin.txt"), "blah");
+jTextArea1.read(new FileReader("/home/swg/swg-main/nme/logsstartLogin.txt"), "blah");
 String s = null;
 String line = "";
 String output = "";
@@ -456,7 +468,7 @@ while ((s = stdError.readLine()) != null) {
         try {
             // TODO add your handling code here:
             Runtime rt = Runtime.getRuntime();
-            String[] commands = {"bash","/home/swg/swg-main/./nohupChat.sh"};
+            String[] commands = {"bash","/home/swg/swg-main/nme/scripts/./nohupChat.sh"};
             Process proc = rt.exec(commands);
             
             BufferedReader stdInput = new BufferedReader(new
@@ -468,7 +480,7 @@ while ((s = stdError.readLine()) != null) {
             
 // read the output from the command
 System.out.println("Chat Server Started...\n");
-jTextArea2.read(new FileReader("/home/swg/swg-main/chat/startChat.txt"), "blah");
+jTextArea2.read(new FileReader("/home/swg/swg-main/nme/logs/startChat.txt"), "blah");
 String s = null;
 String line = "";
 String output = "";
@@ -494,7 +506,7 @@ while ((s = stdError.readLine()) != null) {
         try {
             // TODO add your handling code here:
             Runtime rt = Runtime.getRuntime();
-            String[] commands = {"bash","/home/swg/swg-main/./nohupStart.sh"};
+            String[] commands = {"bash","/home/swg/swg-main/nme/scripts/./nohupStart.sh"};
             Process proc = rt.exec(commands);
             
             BufferedReader stdInput = new BufferedReader(new
@@ -506,7 +518,7 @@ while ((s = stdError.readLine()) != null) {
             
 // read the output from the command
 System.out.println("Game Server Started...\n");
-jTextArea3.read(new FileReader("/home/swg/swg-main/startServer.txt"), "blah");
+jTextArea3.read(new FileReader("/home/swg/swg-main/nme/logs/startServer.txt"), "blah");
 String s = null;
 String line = "";
 String output = "";
@@ -533,7 +545,7 @@ while ((s = stdError.readLine()) != null) {
         try {
             // TODO add your handling code here:
             Runtime rt = Runtime.getRuntime();
-            String[] commands = {"bash","/home/swg/swg-main/./oracleStatus.sh"};
+            String[] commands = {"bash","/home/swg/swg-main/nme/scripts/./oracleStatus.sh"};
             Process proc = rt.exec(commands);
             
             BufferedReader stdInput = new BufferedReader(new
@@ -545,7 +557,7 @@ while ((s = stdError.readLine()) != null) {
             
 // read the output from the command
 System.out.println("Oracle Status Request...\n");
-OracleStatus.read(new FileReader("/home/swg/swg-main/oracleStatus.txt"), "blah");
+OracleStatus.read(new FileReader("/home/swg/swg-main/nme/logs/oracleStatus.txt"), "blah");
 String s = null;
 String line = "";
 String output = "";
@@ -581,7 +593,7 @@ while ((s = stdError.readLine()) != null) {
                 try {
             // TODO add your handling code here:
             Runtime rt = Runtime.getRuntime();
-            String[] commands = {"bash","/home/swg/swg-main/./killGame.sh", "&"};
+            String[] commands = {"bash","/home/swg/swg-main/nme/scripts/./killGame.sh", "&"};
             Process proc = rt.exec(commands);
             
             BufferedReader stdInput = new BufferedReader(new
@@ -619,7 +631,7 @@ while ((s = stdError.readLine()) != null) {
         try {
             // TODO add your handling code here:
             Runtime rt = Runtime.getRuntime();
-            String[] commands = {"bash","/home/swg/swg-main/./killServers.sh", "&"};
+            String[] commands = {"bash","/home/swg/swg-main/nme/scripts/./killServers.sh", "&"};
             Process proc = rt.exec(commands);
             
             BufferedReader stdInput = new BufferedReader(new
@@ -665,7 +677,7 @@ while ((s = stdError.readLine()) != null) {
 
     private void RefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshActionPerformed
         try {
-            jTextArea1.read(new FileReader("/home/swg/swg-main/startLogin.txt"), "blah");
+            jTextArea1.read(new FileReader("/home/swg/swg-main/nme/logs/startLogin.txt"), "blah");
             jTextArea1.setCaretPosition(jTextArea1.getDocument().getLength() - 1);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(GalaxiesManager.class.getName()).log(Level.SEVERE, null, ex);
@@ -673,7 +685,7 @@ while ((s = stdError.readLine()) != null) {
             Logger.getLogger(GalaxiesManager.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            jTextArea2.read(new FileReader("/home/swg/swg-main/chat/startChat.txt"), "blah");
+            jTextArea2.read(new FileReader("/home/swg/swg-main/nme/logs/startChat.txt"), "blah");
             jTextArea2.setCaretPosition(jTextArea2.getDocument().getLength() - 1);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(GalaxiesManager.class.getName()).log(Level.SEVERE, null, ex);
@@ -681,7 +693,7 @@ while ((s = stdError.readLine()) != null) {
             Logger.getLogger(GalaxiesManager.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            jTextArea3.read(new FileReader("/home/swg/swg-main/startServer.txt"), "blah");
+            jTextArea3.read(new FileReader("/home/swg/swg-main/nme/logs/startServer.txt"), "blah");
             jTextArea3.setCaretPosition(jTextArea3.getDocument().getLength() - 1);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(GalaxiesManager.class.getName()).log(Level.SEVERE, null, ex);
@@ -694,7 +706,7 @@ while ((s = stdError.readLine()) != null) {
         try {
             // TODO add your handling code here:
             Runtime rt = Runtime.getRuntime();
-            String[] commands = {"bash","/home/swg/swg-main/./clearLogs.sh", "&"};
+            String[] commands = {"bash","/home/swg/swg-main/nme/scripts/./clearLogs.sh", "&"};
             Process proc = rt.exec(commands);
         } catch (IOException ex) {
             Logger.getLogger(GalaxiesManager.class.getName()).log(Level.SEVERE, null, ex);
@@ -736,6 +748,10 @@ while ((s = stdError.readLine()) != null) {
     private void savePlanetsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savePlanetsButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_savePlanetsButtonActionPerformed
+
+    private void toolsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toolsButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_toolsButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -805,6 +821,7 @@ while ((s = stdError.readLine()) != null) {
     private javax.swing.JButton saveButton;
     private javax.swing.JButton savePlanetsButton;
     private javax.swing.JDialog scriptsWindow;
+    private javax.swing.JButton toolsButton;
     private javax.swing.JCheckBox tutorialCheckBox;
     // End of variables declaration//GEN-END:variables
 }
