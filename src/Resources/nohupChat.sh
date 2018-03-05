@@ -2,5 +2,5 @@
 
 cd /home/swg/swg-main/chat
 
-nohup /home/swg/swg-main/chat/chat > startChat.txt 2>&1&
+nohup /home/swg/swg-main/chat/chat > /home/swg/swg-main/nme/logs/startChat.txt 2>&1&
 

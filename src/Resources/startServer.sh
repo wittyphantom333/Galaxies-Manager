@@ -1,8 +1,8 @@
 #!/bin/bash
 echo "*****************************"
-echo "Starting NME Game Server v3.3"
+echo "Starting Galaxies Game Server"
 echo "*****************************"
-cd $(pwd)/exe/linux
+cd /home/swg/swg-main/exe/linux
 
 killall CentralServer &> /dev/null
 killall ChatServer &> /dev/null

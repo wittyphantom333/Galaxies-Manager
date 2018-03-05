@@ -1,8 +1,8 @@
 #!/bin/bash
 echo "******************************"
-echo "NME Login Server Started"
+echo "Galaxies Login Server Started"
 echo "******************************"
-cd $(pwd)/exe/linux
+cd /home/swg/swg-main/exe/linux
 
 killall LoginServer &> /dev/null
 
