@@ -10,7 +10,7 @@ import java.net.URL;
 
 /**
  *
- * @author adamwitt
+ * @author wittyphantom333
  */
 public class Updater {
     
