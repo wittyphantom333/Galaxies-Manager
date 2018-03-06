@@ -98,10 +98,11 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="launchSQLdButton" alignment="1" max="32767" attributes="0"/>
+                      <Component id="launchSQLdButton" alignment="1" pref="153" max="32767" attributes="0"/>
                       <Component id="restartOracleButton" max="32767" attributes="0"/>
                       <Component id="closeOracleButton" max="32767" attributes="0"/>
-                      <Component id="backupRestoreButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="backupButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="restoreButton" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane4" min="-2" pref="590" max="-2" attributes="0"/>
@@ -119,8 +120,10 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="launchSQLdButton" min="-2" pref="42" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="backupRestoreButton" min="-2" pref="42" max="-2" attributes="0"/>
-                          <EmptySpace pref="190" max="32767" attributes="0"/>
+                          <Component id="backupButton" min="-2" pref="42" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="restoreButton" min="-2" pref="42" max="-2" attributes="0"/>
+                          <EmptySpace pref="142" max="32767" attributes="0"/>
                           <Component id="closeOracleButton" min="-2" pref="42" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
@@ -174,12 +177,20 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closeOracleButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="backupRestoreButton">
+        <Component class="javax.swing.JButton" name="backupButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Backup &amp; Restore"/>
+            <Property name="text" type="java.lang.String" value="Backup"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backupRestoreButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backupButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="restoreButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Restore"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="restoreButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
