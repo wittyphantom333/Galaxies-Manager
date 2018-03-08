@@ -1210,7 +1210,7 @@ while ((s = stdError.readLine()) != null) {
         }
         //</editor-fold>
             try {
-            if (Integer.parseInt(Updater.getLatestVersion()) > 4) {
+            if (Integer.parseInt(Updater.getLatestVersion()) > 5) {
                 new UpdateInfo(Updater.getWhatsNew());
             }
             else {
